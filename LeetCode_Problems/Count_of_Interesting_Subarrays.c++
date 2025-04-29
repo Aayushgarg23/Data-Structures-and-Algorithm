@@ -29,6 +29,11 @@ The subarray nums[0..2] which is [3,2,4].
 It can be shown that there are no other interesting subarrays. So, the answer is 3.
 */
 
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
 class Solution {
     public:
         long long countInterestingSubarrays(vector<int>& nums, int modulo, int k) {
