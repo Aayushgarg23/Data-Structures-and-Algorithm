@@ -18,3 +18,20 @@ Constraints:
 
 1 <= arr.length <= 1000
 1 <= arr[i] <= 1000*/
+
+
+class Solution {
+public:
+    bool threeConsecutiveOdds(vector<int>& arr) {
+        int a =0;
+        if(arr.size()>=2){
+        for(int i=0;i<arr.size()-2;i++)
+        {
+            if(arr[i]%2!=0 && arr[i+1]%2!=0 && arr[i+2]%2!=0)
+            {
+                a=1;
+            }
+        }}
+        return a;
+    }
+};
