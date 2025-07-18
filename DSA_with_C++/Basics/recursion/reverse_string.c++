@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-void reverseString(string &str, int start, int end) {
+void reverseString(string str, int start, int end) {
     if (start >= end) return;
 
     swap(str[start], str[end]);
