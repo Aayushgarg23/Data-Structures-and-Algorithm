@@ -5,14 +5,15 @@ using namespace std;
 void bubbleSort(vector<int>& arr, int n) {
     // Base case
     if (n == 1) return;
-
+int didswap = 0;
     // One pass to move the largest element to the end
     for (int i = 0; i < n - 1; i++) {
         if (arr[i] > arr[i + 1]) {
             swap(arr[i], arr[i + 1]);
+            didswap = 1;
         }
     }
-
+if(didswap==1) return;
     // Recursive call on smaller subarray
     bubbleSort(arr, n - 1);
 }
