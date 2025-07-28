@@ -21,3 +21,13 @@ public:
 
     }
 };
+
+/*
+for more optimisation and save the o(n) extra space from the space comlexity we can use the reverse function as well
+reverse the elements form 
+1234567 -> 5671234
+reverse this part 567
+reverse 1234
+then reverse whole array
+the time complexity will remain same but space will be optismised
+*/
