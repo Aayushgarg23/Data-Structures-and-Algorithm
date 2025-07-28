@@ -1,3 +1,6 @@
+/*there is one more approach other than we use such that we will make a temp array and will store non zero in that
+ and then cop to originia one starting and then make furhter form temp size to zero*/
+
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
