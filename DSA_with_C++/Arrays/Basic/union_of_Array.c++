@@ -1,6 +1,20 @@
+/*
+we can use set not unordered set ( will take elemtn without order ) but not using set bcz
+ then the time and space complexity will be high as set will take 
+ (logn) for insert fucntion and for performing n times for iteration it will take 
+
+ time : O(n1logn + n2logn) + O(n1+n2)
+space : O(n1+n2) + O(n1+n2) where seconnd O(n1+n2) is to return the ans not solving
+*/
+
+
+/* current 
+time complexity : o(n1+n2)
+space complexity : o(n1+n2)
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
-//#include <vector>
 
 vector <int> sortedArray(vector<int>& arr1, vector<int>& arr2)
 {
