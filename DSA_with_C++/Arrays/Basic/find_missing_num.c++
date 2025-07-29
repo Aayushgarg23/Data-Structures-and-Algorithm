@@ -60,9 +60,6 @@ space: O(N)
 */
 
 
-
-
-
 // most optimised way
 /*
 use sum such that sum of first natural number and then subtract 
