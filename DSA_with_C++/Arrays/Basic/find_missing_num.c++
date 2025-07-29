@@ -74,7 +74,7 @@ public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
         int sum =0;
-        int actual = n*(n+1)/2;
+        int actual = n*(n+1)/2; // use long long for instead of int for avoiding overflow when n =int_max
         for(int i=0;i<n;i++)
         {
             sum+= nums[i];
