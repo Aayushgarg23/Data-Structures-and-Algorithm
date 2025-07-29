@@ -5,6 +5,8 @@ and check if visit[j]==0 and then only insert otherwise if visit[j]==1 then do n
 time: O(n1*n2)
 space: O(n2)-> extra use for solving
 
+in that also i can have duplicates allowed 
+
 */
 #include<iostream>
 #include<vector>
@@ -19,7 +21,7 @@ vector<int> intersection(vector<int>arr1, vector<int>arr2)
 
     int i = 0, j = 0;
     while (i < n1 && j < n2) {
-        if (arr1[i] == arr2[j]) {
+        if (arr1[i] =.= arr2[j]) {
             if (match.empty() || match.back() != arr1[i])  // avoid duplicates
                 match.push_back(arr1[i]);
             i++;
