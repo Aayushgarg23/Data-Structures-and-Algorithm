@@ -40,7 +40,7 @@ vector<int> intersection(vector<int>arr1, vector<int>arr2)
 int main()
 {
     vector<int> arr1 = {1,1,2,3,4,6,7,7,8,9};
-    vector<int> arr2 = {1,2,2,3,4,6,7,9};
+    vector<int> arr2 = {1,1,2,2,3,4,6,7,9};
 
    vector<int>result =  intersection(arr1,arr2);
    for(int val: result)
