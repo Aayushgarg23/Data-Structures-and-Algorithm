@@ -67,6 +67,9 @@ the digit missing will come wheter it's zero or non-zero
 
 time: O(N);
 space: O(1);
+
+
+can use xor method also for avoiding overflow which will also have same complexities
 */
 
 class Solution {
