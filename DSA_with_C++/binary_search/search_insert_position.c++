@@ -1,24 +1,20 @@
-class Solution{
+class Solution {
 public:
-    int lowerBound(vector<int> &nums, int x){
-        .int start=0;
+    int searchInsert(vector<int>& nums, int target) {
+        int start=0;
         int ans=-1;
         int last = nums.size()-1;
         while(start<=last)
         {
             int mid = (start+last)/2;
-            if(nums[mid]>=x)
+            if(nums[mid]>=target)
             {
                 ans = mid;
                 last=mid-1;
             }
             else start = mid+1;
         }
+        if(ans==-1) ans = nums.size();
         return ans;
     }
 };
-/* time: O(logn)
-   space: O(1)*/
-
-
-   /*can done using brute force as well like for loop but that will take time complexity O(N)*/
