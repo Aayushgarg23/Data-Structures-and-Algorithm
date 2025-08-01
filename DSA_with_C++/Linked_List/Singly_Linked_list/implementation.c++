@@ -28,7 +28,7 @@ void insertAtTail(Node* &tail,int d)
     tail->next = temp;
     tail = tail->next;
 }
-void insertAtPosition(Node* &head, int position, int d)
+void insertAtPosition(Node* &head, Node* &tail, int position, int d)
 {
     if(position==1) {
         
@@ -44,6 +44,13 @@ void insertAtPosition(Node* &head, int position, int d)
         cnt++;
     }
 
+    // check for last node if we are adding in last then it require to update the tail as well
+
+    if(temp->next == NULL)
+    {
+        insertAtTail(tail,d);
+        return;
+    }
     Node* pos = new Node(d);
     pos->next = temp->next;
     temp->next = pos;
@@ -70,6 +77,6 @@ int main()
     insertAtTail(tail,13);
     insertAtTail(tail,50);
     print(Head);
-    insertAtPosition(Head, 3, 24);
+    insertAtPosition(Head,tail, 4, 24);
     print(Head);
 }
