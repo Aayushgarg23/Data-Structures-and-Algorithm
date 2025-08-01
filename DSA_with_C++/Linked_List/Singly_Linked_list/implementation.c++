@@ -57,7 +57,33 @@ void insertAtPosition(Node* &head, Node* &tail, int position, int d)
 }
 
 
+void deletenode(Node* &head, int position)
+{
+    Node* previous = head;
+    int cnt = 1;
+    if(head==NULL)return;
 
+    if(position==1)
+    {
+        head = head->next;
+        return;
+    }
+    while(cnt<position-1) // 1 2 3 4 5
+    {
+        previous = previous->next;
+        cnt++;
+    }
+
+    if(previous->next == NULL)
+    {
+        return;
+    }
+    Node* current = previous->next;
+    Node* next1 = current->next;
+    previous->next = next1; 
+     
+    delete current;
+}
 
 void print(Node* Head)
 {
@@ -78,5 +104,7 @@ int main()
     insertAtTail(tail,50);
     print(Head);
     insertAtPosition(Head,tail, 4, 24);
+    print(Head);
+    deletenode(Head,2);
     print(Head);
 }
