@@ -100,6 +100,7 @@ int main()
     Node* node1 = new Node(10);
     Node* Head = node1;
     Node* tail = node1;
+    cout << node1;
     insertAtTail(tail,13);
     insertAtTail(tail,50);
     print(Head);
