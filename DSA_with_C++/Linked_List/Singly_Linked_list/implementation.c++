@@ -95,6 +95,26 @@ void print(Node* Head)
     cout << endl;
 }
  
+
+// reverse the Linked list
+void reverse(Node* &head)
+{
+    if(head==NULL) return;
+
+    Node* prev = NULL;
+    Node* current = head;
+    Node* upcoming = NULL;
+    
+    while(current!=NULL)
+    {
+       upcoming = current->next;
+       current->next = prev;
+       prev = current;
+       current = upcoming;
+    }
+    head = prev;
+}
+
 int main()
 {
     Node* node1 = new Node(10);
@@ -107,5 +127,8 @@ int main()
     insertAtPosition(Head,tail, 4, 24);
     print(Head);
     deletenode(Head,2);
+    print(Head);
+    reverse(Head);
+    cout << "Linked List after the reverse: ";
     print(Head);
 }
