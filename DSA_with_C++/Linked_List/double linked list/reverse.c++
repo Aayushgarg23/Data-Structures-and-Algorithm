@@ -32,14 +32,14 @@ class Node
 void reverse(Node* &Head)
 {
     Node* current = Head;
-    Node* upcoming = NULL;
+    //Node* upcoming = NULL;
     Node* prev = NULL;
     while(current!=NULL)
     {
-        prev->
-        upcoming = current->next;
-        current
-        current->next = current->previous;
+        prev = current->previous;
+        current->previous = current->next;
+        current->next = prev;
+        current = current->previous;
     }
 }
 

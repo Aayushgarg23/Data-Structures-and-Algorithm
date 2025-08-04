@@ -140,7 +140,21 @@ int getLength(Node* Head)
     return len;
 }
 
-
+void reverse(Node* &Head)
+{
+    Node* current = Head;
+    //Node* upcoming = NULL;
+    Node* prev = NULL;
+    while(current!=NULL)
+    {
+        prev = current->previous;
+        current->previous = current->next;
+        current->next = prev;
+        current = current->previous;
+    }
+    Head = prev->previous; // as current will become null after last iteration of while loop and then for goign back we will need to go to the 
+    // last node wiht the help of the prev.back which will pint to the last node
+}
 int main()
 {
     Node* Head = NULL;
@@ -179,6 +193,8 @@ int main()
     cout << "Trying to Delete the size+1th element: ";
     deleteNode(Head,getLength(Head)+1); // notihng will happen
     print(Head);
-
+    reverse(Head);
+    cout << "Linked List after the reverse: ";
+    print(Head);
 
 }
