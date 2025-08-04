@@ -115,6 +115,25 @@ void reverse(Node* &head)
     head = prev;
 }
 
+
+void middleOptimal(Node* Head)
+{
+    if(Head->next==NULL)
+    {
+         cout<< Head->data;
+    }
+    Node* slow = Head;
+    Node* fast = Head;
+
+    while(fast!= NULL && fast->next!=NULL  )
+    {
+        
+        slow= slow->next;
+        fast = fast->next->next;
+        
+    }
+    cout<< slow->data;
+}
 int main()
 {
     Node* node1 = new Node(10);
@@ -131,4 +150,6 @@ int main()
     reverse(Head);
     cout << "Linked List after the reverse: ";
     print(Head);
+    cout << "Middle of the Linked list in a optimal way using tortoise and hare approach: ";
+    middleOptimal(Head);
 }
