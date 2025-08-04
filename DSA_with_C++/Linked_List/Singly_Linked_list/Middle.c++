@@ -31,6 +31,8 @@ public:
         while(mid!=0)
         {
             mid--;
+            if(mid==0) break;  // try to understand via if there only one element then it should 
+                               //print head->val but if it will go to temp->next it will return NULL
             temp = temp->next;
         }
         return temp->val;
