@@ -1,6 +1,6 @@
 /* Using the Brute Force 
-time: 
-space:
+time: O(N)
+space: (N)
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
@@ -18,4 +18,30 @@ public:
 
 
 // optimla one using the slow and fast method
+// space: O(1)
+// TIME: O(N) 
 
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast!= NULL && fast->next!= NULL)
+        {
+            slow= slow->next;
+            fast= fast->next->next;
+            if(slow==fast)
+            {
+                slow = head;
+                while(slow!=fast)
+                {
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+return slow;
+            }
+        }
+        return NULL;
+    }
+};
