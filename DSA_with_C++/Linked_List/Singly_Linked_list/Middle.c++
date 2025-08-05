@@ -63,3 +63,6 @@ void middleOptimal(Node* Head)
     }
     cout<< slow->data;
 }
+
+
+
