@@ -2,6 +2,7 @@
 using namespace std;
 #include<vector>
 
+// recursion is not optimal solution
 void insertion_sort(int arr[], int i, int n) {
 
     // Base Case: i == n.
