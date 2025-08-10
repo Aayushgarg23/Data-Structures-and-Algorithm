@@ -1,3 +1,8 @@
+/* using the iterative approach
+can be done using the recursive approach as well
+.
+*/
+
 class Solution {
 public:
     bool isPalindrome(int x) {
