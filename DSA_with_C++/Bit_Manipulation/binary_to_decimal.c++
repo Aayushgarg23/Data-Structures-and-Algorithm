@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+//time: O(Log(N))
+//space: O(1)
 
 int binaryToDecimal(string s)
 {
