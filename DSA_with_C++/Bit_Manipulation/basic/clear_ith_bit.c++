@@ -29,4 +29,5 @@ void clearBit(int n, int i)
 int main()
 {
     clearBit(13,2);
+    clearBit(1,0);
 }
