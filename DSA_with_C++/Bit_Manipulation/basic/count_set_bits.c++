@@ -10,7 +10,9 @@ n % 2 and n / 2 involve division — slower than bitwise operations.
 
 n & 1 and n >> 1 are simple bitwise instructions — faster in practice.
 
-Both have the same Big-O complexity (O(log n)),
+time(for both): (O(log n)),
+space: O(1)
+
 but bitwise version is faster in real execution due to smaller constant factors.
 */
 
@@ -36,12 +38,26 @@ int countSetDigitBitwise(int n)
     return cnt;
 }
 
+/* there is one more way to do it
+
+time: O(no. of set bits)*/
+
+int countSetBit(int n)
+{
+    int cnt=0;
+    while(n!=0)
+    {
+        cnt++;
+        n = n&(n-1);
+    }
+    return cnt;
+}
 
 int main()
 {
-    cout << countSetDigit(1) << endl;
-    cout << countSetDigit(15) << endl;
-    cout << countSetDigit(4) << endl;
-    cout << countSetDigit(5) << endl;
-    cout << countSetDigit(7) << endl;
+    cout << countSetBit(1) << endl;
+    cout << countSetBit(15) << endl;
+    cout << countSetBit(4) << endl;
+    cout << countSetBit(5) << endl;
+    cout << countSetBit(7) << endl;
 }
