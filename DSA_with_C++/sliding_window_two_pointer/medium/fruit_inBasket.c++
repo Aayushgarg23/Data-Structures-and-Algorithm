@@ -5,3 +5,32 @@ so taking complexity O(1)]
 */
 
 
+/* Optimised method by using: Sliding Window (Two Pointer) with HashMap
+Time Complexity: O(n)
+Space Complexity: O(1) (since max 2 fruit types at once)
+*/
+
+/*
+ int totalFruits(vector<int>& fruits) {
+        int n = fruits.size();
+        int l = 0, r = 0;
+        int maxLen = 0;
+        unordered_map<int,int> temp;
+
+        while (r < n) {
+            temp[fruits[r]]++;
+
+            // shrink window if more than 2 fruit types
+            while (temp.size() > 2) {
+                temp[fruits[l]]--;
+                if (temp[fruits[l]] == 0) {
+                    temp.erase(fruits[l]);
+                }
+                l++;
+            }
+
+            maxLen = max(maxLen, r - l + 1);
+            r++;
+        }
+        return maxLen;
+*/
