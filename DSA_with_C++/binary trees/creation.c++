@@ -1,5 +1,6 @@
 #include<iostream>
 #include <queue>
+#include<vector>
 using namespace std;
 
 class Node
@@ -57,6 +58,39 @@ void levelOrderTraversal(Node* root)
             if(temp->right) q.push(temp->right);
     }
 }   
+}
+
+void reverseLevelOrderTraversal(Node* root) {
+    if (root == NULL) return;
+
+    queue<Node*> q;
+    vector<vector<int>> levels;  // store all levels
+
+    q.push(root);
+
+    while (!q.empty()) {
+        int size = q.size();
+        vector<int> currentLevel;
+
+        for (int i = 0; i < size; i++) {
+            Node* temp = q.front();
+            q.pop();
+
+            currentLevel.push_back(temp->data);
+
+            if (temp->left) q.push(temp->left);
+            if (temp->right) q.push(temp->right);
+        }
+        levels.push_back(currentLevel); // store this level
+    }
+
+    // Print levels in reverse order
+    for (int i = levels.size() - 1; i >= 0; i--) {
+        for (int val : levels[i]) {
+            cout << val << " ";
+        }
+        cout << endl;
+    }
 }
 
 int main()
