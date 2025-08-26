@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stack>
 using namespace std;
 class Node {
     public:
@@ -20,4 +21,30 @@ void inorderTraversalRecursive(Node* root)
     inorderTraversalRecursive(root->left);
     cout<< root->data;
     inorderTraversalRecursive(root->right);
+}
+
+void inorderIterative(Node* root)
+{
+    Node* curr = root;
+    stack<Node*>st;
+    while(curr!=NULL || !st.empty())
+    {
+        while(curr!=NULL)
+        {
+            st.push(curr);
+            curr = curr->left;
+        }
+
+        curr = st.top();
+        st.pop();
+
+        cout<< curr->data;
+        curr= curr->right;
+    }
+
+}
+
+void inorderMorris(Node* root)
+{
+    
 }
