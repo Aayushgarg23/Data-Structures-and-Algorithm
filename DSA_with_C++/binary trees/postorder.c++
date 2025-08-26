@@ -20,8 +20,19 @@ class Node
 void postorderRecursive(Node* root)
 {
     if(root==NULL) return;
+    postorderRecursive(root->left);
     postorderRecursive(root->right);
     cout<< root->data;
-    postorderRecursive(root->left);
+    
 }
 
+void postorderIterative(Node* root)
+
+{
+    if(root==NULL)return;
+    stack<Node*> st;
+    while(!st.empty())
+    {
+
+    }
+}

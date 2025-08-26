@@ -20,17 +20,17 @@ class Node
 
 Node* buildTree(Node* root)
 {
-    cout<< "Enter the node value";
+    cout<< "Enter the Node value";
     int data;
     cin>> data;
     root = new Node(data);
 
     if(data==-1) return NULL;
 
-    cout<<"Enter the node to insert in the left of: " << data << endl;
+    cout<<"Enter the Node to insert in the left of: " << data << endl;
     root->left = buildTree(root->left);
 
-    cout<<"Enter the node to insert in the right of: " << data << endl;
+    cout<<"Enter the Node to insert in the right of: " << data << endl;
     root->right = buildTree(root->right);
     return root;
 }
@@ -59,6 +59,40 @@ void levelOrderTraversal(Node* root)
     }
 }   
 }
+
+void buildFromLevelOrder(Node* &root) {
+    queue<Node*> q;
+
+    cout << "Enter data for root" << endl;
+    int data ;
+    cin >> data;
+    root = new Node(data);
+    
+    q.push(root);
+
+    while(!q.empty()) {
+        Node* temp = q.front();
+        q.pop();
+
+        cout << "Enter left Node for: " << temp->data << endl;
+        int leftData;
+        cin >> leftData;
+
+        if(leftData != -1) {
+            temp -> left = new Node(leftData);
+            q.push(temp->left);
+        }
+
+        cout << "Enter right Node for: " << temp->data << endl;
+        int rightData;
+        cin >> rightData;
+
+        if(rightData != -1) {
+            temp -> right = new Node(rightData);
+            q.push(temp->right);
+        }
+    }
+ }
 
 void reverseLevelOrderTraversal(Node* root) {
     if (root == NULL) return;
