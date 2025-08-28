@@ -56,7 +56,7 @@ class Solution {
 //Space = O(H) where H is tree height (worst case O(N))
 
 class Solution {
-    int diameterVal = 0;  // member variable instead of passing as argument
+    int diameterVal = -1;  // member variable instead of passing as argument
 
     int solve(Node* root) {
         if (!root) return 0;
@@ -64,7 +64,7 @@ class Solution {
         int leftHeight = solve(root->left);
         int rightHeight = solve(root->right);
 
-        diameterVal = max(diameterVal, leftHeight + rightHeight + 1);
+        diameterVal = max(diameterVal, leftHeight + rightHeight); // use left+right+1 for node based
 
         return 1 + max(leftHeight, rightHeight);
     }
@@ -75,3 +75,4 @@ public:
         return diameterVal;
     }
 };
+
