@@ -21,7 +21,11 @@ class Solution {
     }
 };
 
-
+/*
+with the help of the level order
+Time: O(N) same as recursion
+Space: O(W) where W = max width of tree (at worst O(N) for a complete tree)
+*/
  bool isIdentical(Node* p, Node* q) {
         queue<Node*> q1, q2;
         q1.push(p);
