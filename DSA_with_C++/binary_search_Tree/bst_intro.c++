@@ -39,6 +39,7 @@ void takeInput(Node* &root)
     while(data!=-1)
     {
         insertInBST(root,data);
+        cin>>data;
     }
 }
 
@@ -71,8 +72,7 @@ void levelOrderTraversal(Node* root)
 
 int main()
 {
-    Node* root;
-
+    Node* root =NULL;
     takeInput(root);
     levelOrderTraversal(root);
 }
