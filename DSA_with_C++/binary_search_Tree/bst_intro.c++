@@ -45,16 +45,13 @@ void takeInput(Node* &root)
 
 bool Search(Node* root, int d)
 {
-    if(root==NULL)return false;
-
-    if(root->val==d) return true;
-    else if(root->val < d)
-    {
-        return Search(root->right,d);
-    }
-    else return Search(root->left,d);
-
-    return false;
+    Node* temp = root;
+    while(temp!=NULL){
+    if(root->val==d)return true;
+    else if(d < root->val) temp= root->right;
+    else temp = root->left;
+}
+return false;
 }
 void levelOrderTraversal(Node* root)
 {
