@@ -19,35 +19,34 @@ class Solution {
   public:
     vector<vector<int>> verticalOrder(Node *root) {
         // Your code here
-        map<int,map<int,vector<int>>> temp;
-        vector<vector<int>>ans;
-        queue<pair<Node*,pair<int,int>>>q; // we need to store the node and it's grid dimension
-        if(root == NULL)
-            return ans;
+         map<int,map<int,vector<int>>> temp;
+        vector<vector<int>> ans;
+        queue<pair<TreeNode*,pair<int,int>>> q;
+        if(!root) return ans;
             
-        q.push(make_pair(root, make_pair(0,0)));
+        q.push({root, {0,0}});
         
-        while(!q.empty())
-        {
-            pair<Node*,pair<int,int>> front = q.front();
+        while(!q.empty()) {
+            auto front = q.front();
             q.pop();
             
-            Node* head = front.first;
+            TreeNode* head = front.first;
             int hor = front.second.first;
             int lev = front.second.second;
             
-            temp[hor][lev].push_back(head->data);
+            temp[hor][lev].push_back(head->val);
             
-            if(head->left)q.push(make_pair(head->left,make_pair(hor-1,lev+1)));
-            if(head->right)q.push(make_pair(head->right,make_pair(hor+1,lev+1)));
+            if(head->left)  q.push({head->left,  {hor-1, lev+1}});
+            if(head->right) q.push({head->right, {hor+1, lev+1}});
         }
-        for(auto i : temp)
-        {
+        
+        for(auto &i : temp) {
             vector<int> collect;
-            for(auto j : i.second)
-            {
-                for(auto k: j.second)
-                {
+            for(auto &j : i.second) {
+                auto &nodes = j.second;
+                sort(nodes.begin(), nodes.end()); // ✅ sort same level nodes
+                // sorting is necessary bcz at some platform it will give error due to value position change
+                for(auto k: nodes) {
                     collect.push_back(k);
                 }
             }
