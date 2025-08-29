@@ -43,6 +43,19 @@ void takeInput(Node* &root)
     }
 }
 
+bool Search(Node* root, int d)
+{
+    if(root==NULL)return false;
+
+    if(root->val==d) return true;
+    else if(root->val < d)
+    {
+        return Search(root->right,d);
+    }
+    else return Search(root->left,d);
+
+    return false;
+}
 void levelOrderTraversal(Node* root)
 {
     if(root==NULL)return;
@@ -75,4 +88,6 @@ int main()
     Node* root =NULL;
     takeInput(root);
     levelOrderTraversal(root);
+    if(Search(root,4)) cout<<"True"<<endl;
+    else cout<<"False"<<endl;
 }
