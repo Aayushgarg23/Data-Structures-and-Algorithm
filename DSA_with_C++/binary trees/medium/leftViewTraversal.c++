@@ -1,6 +1,7 @@
 /*
+
 class Node {
-  public:
+public:
     int data;
     Node* left;
     Node* right;
@@ -10,16 +11,17 @@ class Node {
         left = nullptr;
         right = nullptr;
     }
-}; */
+};
+ */
 
-// for more understanding analyze the top view sol file first
+ // for more understanding analyze the top view sol file first
 // same complexities as top view
 
 class Solution {
   public:
-    vector<int> rightView(Node *root) {
-        //  Code here
-        vector<int>ans;
+    vector<int> leftView(Node *root) {
+        // code here
+         vector<int>ans;
         queue<pair<Node*,int>>q;
         map<int,int>m;
         
@@ -35,19 +37,19 @@ class Solution {
             int level = temp.second;
             
             m[level] = head->data;
-            
-            if(head->left)q.push(make_pair(head->left,level+1));// just replace this and next line for
+            if(head->right)q.push(make_pair(head->right,level+1));// just replace this and next line for
             // leftview vs rightview as the later one will replace the earlier one here
-            if(head->right)q.push(make_pair(head->right,level+1));
+            if(head->left)q.push(make_pair(head->left,level+1));
+            
         }
         for(auto i:m)
         {
             ans.push_back(i.second);
         }
         return ans;
+    
     }
 };
-
 
 /*  
 ----------------Using the DFS------------------
@@ -64,9 +66,8 @@ Answer vector (ans) = stores at most one element per level = O(H)
 
 risk of stack overflow in
 */
- 
 
-class RightTraversal
+class LeftView
 {
     public:
     //Function to return list containing elements of right view of binary tree.
@@ -77,13 +78,12 @@ class RightTraversal
        
     //we entered into a new level    
     if(level == ans.size())
-        ans.push_back(root->data);
-        
-    solve(root->right, ans, level+1);    
+    ans.push_back(root->data);            
     solve(root->left, ans, level+1);
+    solve(root->right, ans, level+1);    
     
 }
-    vector<int> rightView(Node *root)
+    vector<int> leftView(Node *root)
     {
         vector<int> ans;
         solve(root, ans, 0);
