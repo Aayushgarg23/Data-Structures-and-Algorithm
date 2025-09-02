@@ -12,3 +12,8 @@ void selectionSort(vector<int>& arr, int n)
     }
     // Write your code here.
 }
+// TC: O(N^2)
+// SC: O(1)
+// In-place sorting algorithm
+// Unstable sorting algorithm
+// Comparison-based sorting algorithm
