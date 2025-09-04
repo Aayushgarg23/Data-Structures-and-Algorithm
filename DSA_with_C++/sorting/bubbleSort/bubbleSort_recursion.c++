@@ -13,7 +13,7 @@ int didswap = 0;
             didswap = 1;
         }
     }
-if(didswap==1) return;
+if(didswap==0) return;
     // Recursive call on smaller subarray
     bubbleSort(arr, n - 1);
 }
