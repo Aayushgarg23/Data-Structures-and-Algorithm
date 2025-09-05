@@ -81,7 +81,16 @@ public:
         heapify(i);
     }
 
-   
+    void heapSort() { // O(n log n) time complexity to sort an array using heap sort
+        //it is in place sorting algorithm but not stable
+        // heap sort is just a method to sort an array using heap data structure
+        int originalSize = size; // Store the original size of the heap
+        for (int i = 0; i < originalSize; i++) {
+            cout << arr[1] << " "; // The root element is the largest
+            deleteFromHeap(); // Remove the root element and re-heapify
+        }
+        cout << endl;
+    }
     void print() {
         for (int i = 1; i <= size; i++) {
             cout << arr[i] << " ";
