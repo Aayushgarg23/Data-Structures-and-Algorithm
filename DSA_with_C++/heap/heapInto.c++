@@ -77,8 +77,10 @@ public:
         }
     }
 
+    void buildHeap() {
     for(int i = size / 2; i > 0; i--) { // building heap from an array in O(n) time. We start from size/2 because all nodes after that are leaf nodes and already satisfy heap property
         heapify(i);
+    }
     }
 
     void heapSort() { // O(n log n) time complexity to sort an array using heap sort
