@@ -27,7 +27,22 @@ int kthSmallestUsingMaxHeap(vector<int> &arr, int k) {
     // Space Complexity: O(k) for storing k elements in the heap
 }
 
+int kthsmallestUsingMinHeap(vector<int> &arr, int k) {
+    priority_queue<int, vector<int>, greater<int>> minHeap; // min heap to store all elements
 
+    for (int i = 0; i < arr.size(); i++) {
+        minHeap.push(arr[i]);
+    }
+
+    // remove the smallest element k-1 times
+    for (int i = 0; i < k - 1; i++) {
+        minHeap.pop();
+    }
+
+    return minHeap.top(); // the root of the min heap is the kth smallest element
+    // Time Complexity: O(n + k log n) where n is the number of elements in the array
+    // Space Complexity: O(n) for storing all elements in the heap
+}
 
 int main() {
     vector<int> arr = {7, 10, 4, 3, 20, 15};
