@@ -88,6 +88,7 @@ public:
         // heap sort is just a method to sort an array using heap data structure
         int originalSize = size; // Store the original size of the heap
         for (int i = 0; i < originalSize; i++) {
+            // just printing and deleting the root element one by one not other thing bcz after deleting root element heapify will take care of re-heapifying the heap
             cout << arr[1] << " "; // The root element is the largest
             deleteFromHeap(); // Remove the root element and re-heapify
         }
