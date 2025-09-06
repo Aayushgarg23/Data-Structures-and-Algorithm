@@ -43,6 +43,7 @@ int kthsmallestUsingMinHeap(vector<int> &arr, int k) {
     // Time Complexity: O(n + k log n) where n is the number of elements in the array
     // Space Complexity: O(n) for storing all elements in the heap
 }
+// out of these three methods using max heap is the most optimal one
 
 int main() {
     vector<int> arr = {7, 10, 4, 3, 20, 15};
