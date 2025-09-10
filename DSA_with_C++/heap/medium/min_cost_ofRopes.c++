@@ -23,6 +23,7 @@ void minCost(int arr[], int n)
     }
 
     cout << res << endl;
+    
 }
 
 int main()
