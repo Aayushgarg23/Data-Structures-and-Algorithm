@@ -7,7 +7,7 @@ int main()
     int m, n;
     cin>> n >> m;
 
-    int adj[n+1][n+1];
+    int adj[n+1][n+1]={0}; // n+1 for 1 based indexing. Every element is initialized to 0
 
     for(int i=0;i<m;i++)
     {
