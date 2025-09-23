@@ -27,3 +27,8 @@ int main()
             cout << endl;
         }
 }
+
+// space complexity: O(n^2) for adjacency matrix
+// time complexity: O(1) for adding an edge, O(n) for printing all neighbours of a node
+// drawback: for a sparse graph, it takes more space
+// advantage: to check if an edge exists between two nodes, it takes O(1) time
