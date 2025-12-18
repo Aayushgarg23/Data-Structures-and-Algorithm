@@ -17,7 +17,7 @@ private:
             q.pop();
 
             // Check all 8 neighbors
-            for (int k = 0; k < 8; k++) {
+            for (int k = 0; k < 8; k++) { // if we will use the double for loop for the direction then it will take more time 
                 int nr = r + dR[k];
                 int nc = c + dC[k];
 
@@ -58,3 +58,6 @@ public:
 
 // time complexity: O(N*M) where N and M are number of rows and columns respectively bcz we are traversing whole grid once 
 // space complexity: O(N*M) for visited array and O(min(N,M)) for queue in bfs in worst case bcz at max we can have min(N,M) nodes in queue at a time.
+// overall space complexity: O(N*M)
+// Note: Here we are considering 'L' as land and 'W' as water as per your requirement.
+// time complexity can also be O(N*M*8) bcz for each cell we are checking 8 directions but it is considered as O(N*M) in big O notation.
