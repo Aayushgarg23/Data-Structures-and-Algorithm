@@ -48,3 +48,18 @@ can do by slow and fast method also so that we can save the time
 5. after matching again reverse the original list so that the bonds will not get effected
 
 */
+class Solution {
+    private:
+    ListNode* isPalindromeSlowFast(ListNode* head)
+    {
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+            slow= slow->next;
+            fast= fast->next->next;
+        }
+        return slow;
+        
+    }
+}
