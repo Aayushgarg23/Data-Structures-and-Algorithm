@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* left;
+    Node* right;
+    
+    Node(int val)
+    {
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+};
 /* I can do it in two ways first by taking the height function and then use that for diameter
 Time Complexity = O(N²)
 Because for every node (N), we call height() (which is O(N) in skewed tree)

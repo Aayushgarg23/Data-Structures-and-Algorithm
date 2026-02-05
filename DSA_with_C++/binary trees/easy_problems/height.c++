@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 /*
 Methods to compute height
 A) Recursive DFS (bottom-up)
@@ -6,6 +9,19 @@ Time: O(N)
 Space: O(H) recursion stack (H = tree height)
 ❌ Risk of deep recursion on skewed trees
 */
+class Node{
+    public:
+    int data;
+    Node* left;
+    Node* right;
+    
+    Node(int val)
+    {
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+};
 
 int heightRecursive(Node* root)
 {
@@ -57,3 +73,4 @@ Space: O(H)
 ✅ No recursion; flexible
 ❌ Slightly more code than BFS
 */
+
