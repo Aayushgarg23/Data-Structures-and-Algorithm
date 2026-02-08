@@ -28,3 +28,16 @@ vector<string> subsequences(string str){
 	return ans;
 	
 }
+
+int main()
+{
+	string str = "abc";
+	vector<string> ans = subsequences(str);
+
+	for(string s : ans)
+	{
+		cout<<s<<" ";
+	}
+	return 0;
+}	
+
