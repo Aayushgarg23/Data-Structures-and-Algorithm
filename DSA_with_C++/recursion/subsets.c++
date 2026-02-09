@@ -31,3 +31,17 @@ public:
         return ans;
     }
 };
+
+int main()
+{
+    Solution s;
+    vector<int> arr = {1, 2, 3};
+    vector<vector<int>> ans = s.subsets(arr);
+    for (auto subset : ans) {
+        for (int num : subset) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
