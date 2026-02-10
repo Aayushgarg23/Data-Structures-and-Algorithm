@@ -17,46 +17,78 @@ in-place and reconnect the group with the rest of the list.
 This achieves O(n) time and O(1) space
 */
 
+// iterative solution
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        if (!head || k <= 1) return head;
+       
+        if(!head || k<=1) return head;
 
         ListNode dummy(0);
+
+        ListNode *prevgrp = &dummy;
         dummy.next = head;
 
-        ListNode* groupPrev = &dummy;
+        while(true)
+        {
+            ListNode* kth = prevgrp;
 
-        while (true) {
-            // Find the k-th node
-            ListNode* kth = groupPrev;
-            for (int i = 0; i < k && kth; i++) {
-                kth = kth->next;
+            for(int i=0;i<k;i++)
+            {
+                if(kth)kth = kth->next;
             }
-            if (!kth) break;
+            if(!kth) break;
 
-            // Reverse the group
-            ListNode* groupNext = kth->next;
-            ListNode* prev = groupNext;
-            ListNode* curr = groupPrev->next;
 
-            while (curr != groupNext) {
+            ListNode* grpnext = kth->next;
+            ListNode* prev = grpnext;
+            ListNode* curr = prevgrp->next;
+
+            while(curr!= grpnext)
+            {
                 ListNode* temp = curr->next;
                 curr->next = prev;
-                prev = curr;
+                prev =curr;
                 curr = temp;
             }
 
-            // Connect with previous part
-            ListNode* temp = groupPrev->next;
-            groupPrev->next = kth;
-            groupPrev = temp;
-        }
+            ListNode* temp  = prevgrp->next;
+            prevgrp-> next = kth; // to coneect the dummy with the new starting node of the group
+            prevgrp = temp;
 
-        return dummy.next;
+        }
     }
 };
 
+
+// Recursive solution
+// time complexity: O(n) where n is the number of nodes in the list
+
+ListNode* reverseKGroup(ListNode* head, int k) {
+        // 1️⃣ Check if k nodes exist
+        ListNode* temp = head;
+        for (int i = 0; i < k; i++) {
+            if (temp == NULL) return head;
+            temp = temp->next;
+        }
+
+        // 2️⃣ Reverse first k nodes
+        ListNode* prev = NULL;
+        ListNode* curr = head;
+
+        for (int i = 0; i < k; i++) {
+            ListNode* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        // 3️⃣ Recursive call for remaining list
+        head->next = reverseKGroup(curr, k);
+
+        // 4️⃣ New head of this group
+        return prev;
+    }
 
 
 int main()
@@ -77,6 +109,6 @@ int main()
         current = current->next;
     }
     cout << endl;
-    
+
 }
 
