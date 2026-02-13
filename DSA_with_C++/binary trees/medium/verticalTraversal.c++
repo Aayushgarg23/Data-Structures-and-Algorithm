@@ -1,15 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node {
+class TreeNode {
   public:
-    int data;
-    Node* left;
-    Node* right;
+    int val;
+    TreeNode* left;
+    TreeNode* right;
 
     // Constructor to initialize a new node
-    Node(int val) {
-        data = val;
+    TreeNode(int val) {
+        val = val;
         left = NULL;
         right = NULL;
     }
@@ -17,7 +17,7 @@ class Node {
 
 class Solution {
   public:
-    vector<vector<int>> verticalOrder(Node *root) {
+    vector<vector<int>> verticalOrder(TreeNode *root) {
         // Your code here
          map<int,map<int,vector<int>>> temp;
         vector<vector<int>> ans;
