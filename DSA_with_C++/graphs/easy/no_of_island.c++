@@ -3,7 +3,7 @@ using namespace std;
 
 
 // time complexity: O(m*n) -> Each cell is visited at most once in the BFS traversal.
-// space complexity: O(min(m,n)) -> In the worst case, the queue can hold all the cells in a row or column of the grid, which is O(min(m,n)).
+// space complexity: O(m*n) -> In the worst case, the queue can hold all the cells in a row or column of the grid, which is O(m*n).
 // approach: We can use a breadth-first search (BFS) approach to solve this problem. We iterate through each cell in the grid, and whenever we encounter a land cell (1), we initiate a BFS from that cell to mark all connected land cells as visited (e.g., by changing them to 0). Each time we start a new BFS, it indicates that we have found a new island, so we increment our island count. The BFS will explore all adjacent land cells (up, down, left, right) and mark them as visited until there are no more connected land cells to explore.
 
 class Solution {
