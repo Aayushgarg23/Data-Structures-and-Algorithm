@@ -18,8 +18,11 @@ public:
 
         for(int num:nums)
         {
-            if(cnt==0)candidate = num;
-            else if(cnt==candidate)cnt++;
+            if(cnt==0){
+                candidate = num;
+                cnt=1;
+                }
+            else if(num==candidate)cnt++;
             else cnt--;
         }
         return candidate;
